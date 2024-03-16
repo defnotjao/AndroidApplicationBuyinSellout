@@ -36,22 +36,13 @@ class CartAdapter : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
     inner class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val productNameTextView: TextView = itemView.findViewById(R.id.productNameTextView)
         private val productPriceTextView: TextView = itemView.findViewById(R.id.productPriceTextView)
-        private val selectedSizeTextView: TextView = itemView.findViewById(R.id.selectedSizeTextView)
         private val productImageView: ImageView = itemView.findViewById(R.id.productImageView)
         private val removeItemButton: ImageView = itemView.findViewById(R.id.removeItemButton)
-        private val selectCheckBox: CheckBox = itemView.findViewById(R.id.selectCheckBox)
 
         fun bind(item: CartItem) {
             productNameTextView.text = item.name
             productPriceTextView.text = String.format("%.2f", item.price)
-            selectedSizeTextView.text = "Size: ${item.size}"
             productImageView.setImageResource(item.imageResource)
-            selectCheckBox.isChecked = item.isSelected
-
-            selectCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
-                item.isSelected = isChecked
-                updateTotalAmount()
-            }
 
             removeItemButton.setOnClickListener {
                 showRemoveItemConfirmationDialog(item)

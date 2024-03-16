@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/signinbg"
+    android:background="@drawable/favicon"
     tools:context=".SignupAndLogin">
 
 
@@ -20,6 +20,7 @@
         android:foreground="@drawable/transparent_button_foreground"
         android:text="Sign Up"
         android:textSize="20sp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guidelineTop" />
@@ -34,6 +35,7 @@
         android:background="@drawable/transparent_button_background"
         android:foreground="@drawable/transparent_button_foreground"
         android:text="Log In"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

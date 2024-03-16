@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
-    private const val BASE_URL = "https://sneakersphere.online/api/"
+    private const val BASE_URL =  "https://buyin-n-sellout-dd59ae5ce084.herokuapp.com/api/"
 
     val apiService: ProductAPI by lazy {
         Retrofit.Builder()

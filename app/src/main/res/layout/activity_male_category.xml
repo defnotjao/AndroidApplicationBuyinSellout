@@ -50,16 +50,6 @@
                 android:contentDescription="Add to Cart"
                 android:src="@drawable/baseline_shopping_cart_24"
                 tools:ignore="TouchTargetSizeCheck" />
-
-            <ImageButton
-                android:id="@+id/searchButton"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_toStartOf="@id/cartButton"
-                android:background="@android:color/transparent"
-                android:contentDescription="Search"
-                android:src="@drawable/baseline_search_24"
-                tools:ignore="TouchTargetSizeCheck" />
         </RelativeLayout>
     </RelativeLayout>
 </ScrollView>

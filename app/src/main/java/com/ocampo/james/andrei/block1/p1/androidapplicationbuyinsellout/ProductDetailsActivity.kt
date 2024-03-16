@@ -177,9 +177,4 @@ class ProductDetailsActivity : AppCompatActivity() {
         val intent = Intent(this, CartActivity::class.java)
         startActivity(intent)
     }
-
-    fun openSearch(view: View) {
-        val intent = Intent(this, SearchActivity::class.java)
-        startActivity(intent)
-    }
 }

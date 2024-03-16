@@ -182,7 +182,7 @@ class Dashboard : AppCompatActivity(), ProductAdapter.OnProductClickListener {
 
     private fun generateDummyData(): List<Int> {
         return listOf(
-            R.drawable.img1,
+            R.drawable.upangstudents,
             R.drawable.img2,
             R.drawable.img3,
             R.drawable.img4,

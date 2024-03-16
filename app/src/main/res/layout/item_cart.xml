@@ -4,19 +4,13 @@
     android:layout_height="wrap_content"
     android:padding="16dp">
 
-    <CheckBox
-        android:id="@+id/selectCheckBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"/>
 
-    <ImageView
+    <Button
         android:id="@+id/removeItemButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/baseline_remove_shopping_cart_24"
-        android:background="@drawable/baseline_remove_shopping_cart_24"
+        android:text="Remove"
+        android:backgroundTint="@color/bggreen"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         app:tint="@android:color/black" />
@@ -25,12 +19,11 @@
         android:id="@+id/productImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/placeholder_image"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="16dp"
         android:scaleType="centerCrop"
-        android:layout_toEndOf="@id/selectCheckBox"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
+        android:src="@drawable/placeholder_image" />
 
     <TextView
         android:id="@+id/productNameTextView"
@@ -54,17 +47,5 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"/>
 
-    <!-- Add a TextView for the shoe size -->
-    <TextView
-        android:id="@+id/selectedSizeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/productPriceTextView"
-        android:layout_toEndOf="@id/productImageView"
-        android:text="Size: "
-        android:textSize="16sp"
-        android:textColor="@android:color/darker_gray"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"/>
 
 </RelativeLayout>
