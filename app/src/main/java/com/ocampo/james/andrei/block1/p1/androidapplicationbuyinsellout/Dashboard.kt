@@ -83,25 +83,6 @@ class Dashboard : AppCompatActivity(), ProductAdapter.OnProductClickListener {
         productAdapter = ProductAdapter(emptyList(), this)
         productRecyclerView.adapter = productAdapter
 
-        // Categories
-        val maleCategory = findViewById<LinearLayout>(R.id.maleCategory)
-        val femaleCategory = findViewById<LinearLayout>(R.id.femaleCategory)
-        val kidsCategory = findViewById<LinearLayout>(R.id.kidsCategory)
-
-        // Set onClickListener for Men Category
-        maleCategory.setOnClickListener {
-            handleCategoryClick("Men")
-        }
-
-        // Set onClickListener for Women Category
-        femaleCategory.setOnClickListener {
-            handleCategoryClick("Women")
-        }
-
-        // Set onClickListener for Kids Category
-        kidsCategory.setOnClickListener {
-            handleCategoryClick("Kids")
-        }
 
         // Set onClickListener for the menu button to open the drawer
         val menuButton: ImageButton = findViewById(R.id.menuButton)

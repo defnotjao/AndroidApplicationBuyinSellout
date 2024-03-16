@@ -68,23 +68,24 @@
             android:layout_marginTop="8dp"/>
 
         <!-- "Shop here" label -->
-        <TextView
-            android:id="@+id/shopHereLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="15dp"
-           android:layout_marginLeft="10dp"
-            android:paddingBottom="15dp"
-            android:text="Shop here"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/shopHereLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="Latest Products"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <!-- Product RecyclerView -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/productRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
 
         <!-- "Categories" label -->
         <TextView
@@ -99,66 +100,6 @@
             android:textStyle="bold"
             android:layout_marginTop="8dp"/>
 
-        <!-- Male Category -->
-        <LinearLayout
-            android:id="@+id/maleCategory"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="horizontal"
-            android:background="@drawable/category_male_background"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="MEN"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:layout_marginStart="16dp"
-                android:layout_gravity="center_vertical"/>
-
-        </LinearLayout>
-
-        <!-- Female Category -->
-        <LinearLayout
-            android:id="@+id/femaleCategory"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="horizontal"
-            android:background="@drawable/category_female_background"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="WOMEN"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:layout_marginStart="16dp"
-                android:layout_gravity="center_vertical"/>
-
-        </LinearLayout>
-
-        <!-- Kids Category -->
-        <LinearLayout
-            android:id="@+id/kidsCategory"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="horizontal"
-            android:background="@drawable/category_kids_background"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="15dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="KIDS"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:layout_marginStart="16dp"
-                android:layout_gravity="center_vertical"/>
-
-        </LinearLayout>
 
     </LinearLayout>
 
