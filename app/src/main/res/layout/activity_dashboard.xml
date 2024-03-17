@@ -86,12 +86,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <TextView
+                android:id="@+id/shopHereLabel1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="Featured Products"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-        <!-- "Categories" label -->
+            <!-- Product RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/productRecyclerView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
 
-
-    </LinearLayout>
+        </LinearLayout>
 
 </ScrollView>
 
