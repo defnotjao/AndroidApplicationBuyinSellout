@@ -3,6 +3,8 @@ package com.ocampo.james.andrei.block1.p1.androidapplicationbuyinsellout
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.JsonReader
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -11,46 +13,88 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ocampo.james.andrei.block1.p1.androidapplicationbuyinsellout.R
+import com.ocampo.james.andrei.block1.p1.androidapplicationbuyinsellout.databinding.ActivityLoginBinding
 
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.StringReader
 
 class LoginActivity : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
+    private lateinit var binding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        binding.btnLogIn.setOnClickListener {
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
 
-        val backButton: ImageView = findViewById(R.id.backButton)
-        val loginButton: Button = findViewById(R.id.btnLogIn)
-        val etEmail: EditText = findViewById(R.id.etEmail)
-        val etPassword: EditText = findViewById(R.id.etPassword)
-        val tvSignUp: TextView = findViewById(R.id.tvSignUp)
+            val signinDataJson =
+                "{\"email\":\"$email\",\"password\":\"$password\"}"
 
-        backButton.setOnClickListener {
-            onBackPressed()
-        }
+            if (email.isEmpty()) {
+                binding.etEmail.error = "Email required"
+                binding.etEmail.requestFocus()
+                return@setOnClickListener
+            }
 
-        loginButton.setOnClickListener {
-            val email = etEmail.text.toString()
-            val password = etPassword.text.toString()
+            if (password.isEmpty()) {
+                binding.etPassword.error = "Password required"
+                binding.etPassword.requestFocus()
+                return@setOnClickListener
+            }
 
-            if (email.isNotEmpty() && password.isNotEmpty()) {
-                // Perform login logic here
-                // For now, just navigate to Dashboard
-                val intent = Intent(this, Dashboard::class.java)
-                startActivity(intent)
-            } else {
-                Toast.makeText(this, "Email and password are required", Toast.LENGTH_SHORT).show()
+            try {
+                val reader = JsonReader(StringReader(signinDataJson))
+                reader.isLenient = true
+                reader.beginObject()
+                reader.close()
+
+                RetrofitHelper.instance.login(email, password).enqueue(object :
+                    Callback<DefaultResponse> {
+                    override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                        Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                    }
+
+                    override fun onResponse(
+                        call: Call<DefaultResponse>,
+                        response: Response<DefaultResponse>
+                    ) {
+                        if (response.isSuccessful && response.body() != null) {
+                            // Handle successful response
+                            Toast.makeText(applicationContext, response.body()!!.message, Toast.LENGTH_LONG).show()
+                            startActivity(Intent(applicationContext, Dashboard::class.java))
+                            finish()
+                        } else {
+                            // Handle unsuccessful response
+                            val errorMessage: String = try {
+                                response.errorBody()?.string()
+                                    ?: "Failed to get a valid response. Response code: ${response.code()}"
+                            } catch (e: Exception) {
+                                "Failed to get a valid response. Response code: ${response.code()}"
+                            }
+                            Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_LONG).show()
+                            Log.e("API_RESPONSE", errorMessage)
+                        }
+                    }
+                })
+            } catch (e: Exception) {
+                Toast.makeText(applicationContext, "Error parsing JSON", Toast.LENGTH_SHORT).show()
+                e.printStackTrace()
             }
         }
 
-        tvSignUp.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
+        binding.tvSignUp.setOnClickListener {
+            startActivity(Intent(applicationContext, SignUpActivity::class.java))
+            finish()
+        }
+
+        binding.home.setOnClickListener {
+            startActivity(Intent(applicationContext, MainActivity::class.java))
+            finish()
         }
     }
 }

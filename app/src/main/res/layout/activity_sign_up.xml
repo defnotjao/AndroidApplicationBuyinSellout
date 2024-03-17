@@ -37,9 +37,21 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/etEmail"
+                android:id="@+id/fullname"
                 android:background="@drawable/custom_edittext"
                 android:layout_marginTop="40dp"
+                android:padding="8dp"
+                android:hint="Full Name"
+                android:textColor="@color/black"
+                android:drawablePadding="8dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/email"
+                android:background="@drawable/custom_edittext"
+                android:layout_marginTop="20dp"
+                android:inputType="text"
                 android:padding="8dp"
                 android:hint="Email"
                 android:textColor="@color/black"
@@ -48,24 +60,12 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/etPassword"
-                android:background="@drawable/custom_edittext"
-                android:layout_marginTop="20dp"
-                android:inputType="text"
-                android:padding="8dp"
-                android:hint="Password"
-                android:textColor="@color/black"
-                android:drawablePadding="8dp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/etConfirmPassword"
+                android:id="@+id/password"
                 android:background="@drawable/custom_edittext"
                 android:layout_marginTop="20dp"
                 android:inputType="textPassword"
                 android:padding="8dp"
-                android:hint="Confirm Password"
+                android:hint="Password"
                 android:textColor="@color/black"
                 android:drawablePadding="8dp"/>
 
@@ -73,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="Signup"
-                android:id="@+id/btnSignUp"
+                android:id="@+id/signupButton"
                 android:textSize="18sp"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/blue"
@@ -83,5 +83,12 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/backlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Back to Login">
+    </TextView>
 
 </LinearLayout>

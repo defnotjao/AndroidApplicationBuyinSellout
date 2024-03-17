@@ -41,7 +41,6 @@ class Dashboard : AppCompatActivity(), ProductAdapter.OnProductClickListener {
 
         val viewPager2 = findViewById<ViewPager2>(R.id.view_pager)
         val productRecyclerView = findViewById<RecyclerView>(R.id.productRecyclerView)
-        val productRecyclerView1 = findViewById<RecyclerView>(R.id.productRecyclerView1)
 
         val itemList = generateDummyData()
         val adapter = CarouselAdapter(itemList)
@@ -80,11 +79,11 @@ class Dashboard : AppCompatActivity(), ProductAdapter.OnProductClickListener {
         val spanCount = 2
         val layoutManager = GridLayoutManager(this, spanCount)
         productRecyclerView.layoutManager = layoutManager
-        productRecyclerView1.layoutManager = layoutManager
+
 
         productAdapter = ProductAdapter(emptyList(), this)
         productRecyclerView.adapter = productAdapter
-        productRecyclerView1.adapter = productAdapter
+
 
 
         // Set onClickListener for the menu button to open the drawer
